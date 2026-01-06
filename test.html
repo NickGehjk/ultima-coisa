@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>🛒 Lista do Rolê</h2>
+        
+        <div class="input-group">
+            <input type="text" id="itemInput" placeholder="Ex: Picanha, Carvão...">
+            <input type="text" id="itemInput" placeholder="Ex: Picanha, Carvão...">
+            <button id="addBtn" onclick="adicionarItem()">Adicionar</button>
+        </div>
+
+        <ul id="minhaLista">
+            </ul>
+    </div>
+
+    <script>
+        // --- LÓGICA (O JavaScript) ---
+
+        // Pega os elementos da tela
+        const input = document.getElementById("itemInput");
+        const lista = document.getElementById("minhaLista");
+
+        // Função para adicionar item
+        function adicionarItem() {
+            const valorItem = input.value;
+
+            // Se estiver vazio, não faz nada
+            if (valorItem === '') {
+                alert("Escreva algo primeiro! 😅");
+                return;
+            }
+
+            // Cria o elemento da lista (LI)
+            const li = document.createElement("li");
+            
+            // Cria o texto
+            const span = document.createElement("span");
+            span.textContent = valorItem;
+            // Ao clicar no texto, ele risca (marca como feito)
+            span.onclick = function() {
+                li.classList.toggle("checked");
+            };
+
+            // Cria o botão de deletar
+            const btnDeletar = document.createElement("button");
+            btnDeletar.textContent = "X";
+            btnDeletar.className = "delete-btn";
+            btnDeletar.onclick = function() {
+                li.remove();
+            };
+
+            // Junta tudo
+            li.appendChild(span);
+            li.appendChild(btnDeletar);
+            lista.appendChild(li);
+
+            // Limpa o input para o próximo item
+            input.value = "";
+            input.focus();
+        }
+
+        // Permite adicionar apertando ENTER
+        input.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                adicionarItem();
+            }
+        });
+    </script>
+
+</body>
+</html>

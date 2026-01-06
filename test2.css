@@ -1,0 +1,183 @@
+:root {
+    --bg-body: linear-gradient(135deg, #1c1e26 0%, #2a2d3e 100%);
+    --glass: rgba(255, 255, 255, 0.1);
+    --border: rgba(255, 255, 255, 0.2);
+    --text-main: #ffffff;
+}
+
+body {
+    font-family: 'Lexend', sans-serif;
+    background: var(--bg-body);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    width: 100%;
+    max-width: 450px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+/* Área de Inputs */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    /* Para caber no celular */
+}
+
+input,
+select {
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    outline: none;
+    font-family: 'Lexend', sans-serif;
+}
+
+input {
+    flex: 2;
+}
+
+/* Ocupa mais espaço */
+select {
+    flex: 1;
+    cursor: pointer;
+}
+
+input:focus,
+select:focus {
+    border-color: #8e44ad;
+    box-shadow: 0 0 10px rgba(142, 68, 173, 0.5);
+}
+
+button#addBtn {
+    width: 100%;
+    padding: 12px;
+    background: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button#addBtn:hover {
+    background: #732d91;
+    transform: scale(1.02);
+}
+
+/* Lista e Itens */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    animation: slideIn 0.4s ease;
+}
+
+.item-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+/* Estilo das Tags (Badges) */
+.tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #000;
+    text-transform: uppercase;
+}
+
+/* Cores das Categorias */
+.churras {
+    background: #ff6b6b;
+    color: white;
+}
+
+.strogonoff {
+    background: #feca57;
+    color: #333;
+}
+
+.bebida {
+    background: #48dbfb;
+    color: #333;
+}
+
+.geral {
+    background: #c8d6e5;
+    color: #333;
+}
+
+/* Estado Riscado */
+li.checked {
+    opacity: 0.5;
+}
+
+li.checked .item-text {
+    text-decoration: line-through;
+}
+
+.delete-btn {
+    background: transparent;
+    color: #ff6b6b;
+    border: 1px solid #ff6b6b;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 10px;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
