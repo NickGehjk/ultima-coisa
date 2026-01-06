@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Suprema com Categorias 🚀</title>
+
+    <!-- Fonte externa -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;500;700&display=swap" rel="stylesheet">
+    <!-- Estilos principais -->
+    <link rel="stylesheet" href="test2.css">
+</head>
+<body>
+
+    <!-- Container central do app -->
+    <div class="container">
+        <!-- Título da lista -->
+        <h2>🛒 Lista do Rolê</h2>
+
+        <!--
+            Tabela que lista os itens.
+            - thead: cabeçalho com as colunas (Item, Quantidade, Categoria, Ações)
+            - tbody#minhaLista: alvo onde o JavaScript irá inserir <tr> com os itens
+        -->
+        <table class="items-table" aria-label="Lista de itens">
+            <thead>
+                <tr>
+                    <th scope="col">Item</th>
+                    <th scope="col">Quantidade</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col" aria-hidden="true"></th> <!-- coluna de ações (excluir) -->
+                </tr>
+            </thead>
+            <tbody id="minhaLista"></tbody>
+        </table>
+
+        <!-- Botão principal que abre o modal para adicionar um item -->
+        <button id="openAddBtn" class="primary" onclick="mostrarModal()">ADICIONAR ITEM</button>
+    </div>
+
+    <!--
+        Overlay + Modal para adicionar itens.
+        - overlay recebe clique para fechar (fecharModal) — clique dentro da modal não propaga
+        - inputs: item, quantidade e select de categoria
+        - botões: Adicionar (chama adicionarItem) e Cancelar (chama fecharModal)
+    -->
+    <div id="overlay" class="overlay hidden" onclick="fecharModal(event)">
+        <div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()">
+            <h3>Adicionar Item</h3>
+
+            <div class="input-group">
+                <input type="text" id="itemInput" placeholder="Item (ex: Picanha)">
+                <input type="text" id="qtdInput" placeholder="Quantidade (ex: 2kg)">
+                <select id="categoriaSelect">
+                    <option value="geral">Geral</option>
+                    <option value="churras">Churras 🔥</option>
+                    <option value="strog">Strogonoff 🥘</option>
+                    <option value="macarrao">Macarrão 🍝</option>
+                    <option value="bebida">Bebida 🧊</option>
+                </select>
+            </div>
+
+            <div class="modal-actions">
+                <button class="primary" id="addBtn" onclick="adicionarItem()">ADICIONAR</button>
+                <button class="secondary" onclick="fecharModal()">CANCELAR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script separado com toda a lógica -->
+    <script src="test2.js"></script>
+</body>
+</html>

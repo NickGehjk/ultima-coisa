@@ -1,0 +1,210 @@
+/* Estilos gerais e tema vermelho (variáveis CSS) */
+:root{
+    --bg: #fff5f5;
+    --card: #fff;
+    --red-700: #c53030;
+    --red-500: #e53e3e;
+    --red-300: #feb2b2;
+    --muted: #6b6464;
+    --accent: #d53f3f;
+    --shadow: rgba(197, 66, 66, 0.12);
+    font-family: 'Lexend', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Reset box sizing e corpo centralizado */
+*{box-sizing:border-box}
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(180deg, #fff5f5 0%, #ffecec 100%); /* fundo rosado claro */
+    color:#2b2b2b;
+}
+
+/* Card principal */
+.container{
+    width:100%;
+    max-width:720px;
+    background:var(--card);
+    border-radius:12px;
+    padding:22px;
+    box-shadow: 0 8px 28px var(--shadow);
+    border: 1px solid rgba(197,66,66,0.06);
+}
+
+/* Título */
+h2{
+    margin:0 0 14px 0;
+    color:var(--red-700);
+    font-weight:700;
+    display:flex;
+    gap:8px;
+    align-items:center;
+}
+
+/* ----- Tabela ----- */
+/* tabela base e espaçamento entre linhas (usando border-spacing) */
+.items-table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0 8px; /* separa visualmente as linhas */
+    margin-bottom:16px;
+}
+
+/* cabeçalho */
+.items-table thead th{
+    text-align:left;
+    padding:6px 12px;
+    color:var(--muted);
+    font-weight:700;
+    font-size:13px;
+}
+
+/* linhas do corpo: mantemos comportamento de tabela padrão
+   para que cada <td> ocupe sua coluna corretamente */
+.items-table tbody tr{
+    background: linear-gradient(180deg, #fff 0%, #fffaf9 100%);
+    border:1px solid rgba(0,0,0,0.03);
+    box-shadow: 0 6px 18px rgba(213,63,63,0.04);
+    transition: transform .08s, background .12s;
+    overflow: hidden;
+}
+
+/* células */
+.items-table tbody tr td{
+    padding:12px;
+    vertical-align:middle;
+    word-break:break-word;
+    background: transparent;
+    border: none;
+}
+
+/* Larguras aproximadas das colunas para layout estável */
+.items-table tbody tr td:first-child{ 
+    width:45%;                  /* Item */
+    border-radius:10px 0 0 10px;/* arredonda canto esquerdo da linha */
+}
+.items-table tbody tr td:nth-child(2){ width:18%; color:var(--muted) } /* Quantidade */
+.items-table tbody tr td:nth-child(3){ width:25% }                    /* Categoria */
+.items-table tbody tr td:nth-child(4){ width:12%; text-align:right; border-radius:0 10px 10px 0 } /* Ações */
+
+/* Estado riscado (checked) */
+.items-table tbody tr.checked{
+    opacity:0.6;
+    text-decoration: line-through;
+    transform: translateY(1px);
+}
+
+/* Tag de categoria estilo */
+.tag{
+    display:inline-block;
+    padding:4px 8px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:600;
+    color:#fff;
+}
+
+/* temas das categorias (tons vermelhos/pink) */
+.tag.geral{ background: linear-gradient(90deg,var(--red-500), #d94646) }
+.tag.churras{ background: linear-gradient(90deg,#b91c1c,#ef4444) }
+.tag.strog{ background: linear-gradient(90deg,#fb7185,#f43f5e) }
+.tag.macarrao{ background: linear-gradient(90deg,#f97316,#ef4444) }
+.tag.bebida{ background: linear-gradient(90deg,#f43f5e,#fb7185) }
+
+/* Botão excluir */
+.delete-btn{
+    border:0;
+    background:transparent;
+    color:var(--muted);
+    font-size:16px;
+    padding:6px 8px;
+    cursor:pointer;
+    border-radius:6px;
+}
+.delete-btn:hover{ background:rgba(197,66,66,0.06); color:var(--red-700) }
+
+/* Botão primário (ADICIONAR) */
+.primary{
+    width:100%;
+    background: linear-gradient(90deg,var(--red-500),var(--accent));
+    color:#fff;
+    border:0;
+    padding:12px 14px;
+    border-radius:10px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow: 0 6px 18px rgba(213,63,63,0.18);
+}
+.primary:hover{ filter:brightness(.98); transform:translateY(-1px) }
+
+/* Botão secundário (CANCELAR) */
+.secondary{
+    background:transparent;
+    border:1px solid rgba(197,66,66,0.12);
+    color:var(--red-700);
+    padding:10px 12px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* ----- Modal / overlay ----- */
+.overlay{
+    position:fixed;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: rgba(165, 33, 33, 0.28); /* máscara semitransparente */
+    z-index:40;
+    padding:20px;
+}
+.hidden{ display:none; } /* utilitário para esconder overlay */
+
+.modal{
+    width:100%;
+    max-width:480px;
+    background:var(--card);
+    border-radius:12px;
+    padding:18px;
+    box-shadow: 0 18px 48px rgba(0,0,0,0.18);
+    border:1px solid rgba(197,66,66,0.06);
+}
+
+.modal h3{ margin:0 0 12px 0; color:var(--red-700) }
+
+.input-group{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+}
+.input-group input[type="text"],
+.input-group select{
+    padding:10px 12px;
+    border-radius:8px;
+    border:1px solid rgba(0,0,0,0.06);
+    flex:1 1 140px;
+    outline:none;
+}
+.input-group select{ max-width:160px }
+
+.modal-actions{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+}
+
+/* Responsividade: em telas pequenas transformamos cada linha em bloco */
+@media (max-width:720px){
+    .container{ margin:12px; padding:16px }
+    .items-table thead{display:none} /* esconde cabeçalho para economizar espaço */
+    .items-table tbody tr{ display:block; padding:12px }
+    .items-table tbody tr td{ display:flex; justify-content:space-between; padding:8px 6px }
+    .items-table tbody tr td:first-child{ width:auto; border-radius:0 }
+    .items-table tbody tr td:nth-child(4){ border-radius:0 }
+    .input-group{ flex-direction:column; align-items:stretch }
+    .modal{ padding:14px }
+}

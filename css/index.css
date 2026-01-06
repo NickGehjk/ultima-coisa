@@ -1,0 +1,70 @@
+/*Cabeçalho*/
+header{
+	background-color: black;
+	text-align: center;
+	padding: 30px;
+	color: white;
+}
+
+
+nav.navbar-transparent{
+	padding: 15px 0px;
+	background: rgba(255, 255, 255, 0.8);
+    background: rgba(16, 206, 206, 0.8);
+    background: rgba(235, 223, 68, 0.8);
+	border: none;
+}
+
+.navbar-brand{
+	padding: 5px 15px;
+}
+
+.divisor{
+	width: 1px;
+	height: 16px;
+	background: white;
+	margin: 16px 10px;
+}
+
+
+.navbar-inverse .navbar-nav>li>a, footer .nav a{
+	color: blue;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover, footer .nav a:hover{
+	color: red;
+	background: none;
+}
+
+
+/*Definindo uma barra de navegação para o topo do site*/
+.topnav{
+	overflow: hidden;
+    background: #ffd700;
+    padding: 1px;
+    /*background: rgb(247, 212, 61);*?
+	/*background: rgba(255, 255, 255, 0.8);*/
+	/*background-color: white;*/
+}
+
+/*Formatando links descendentes da barra de navegação*/
+.topnav a{
+	float: left;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+    color: black;
+}
+
+/*Os links trocam a cor qunado o mouse está por cima*/
+.topnav a:hover{
+	background-color: #2bd1b5;
+	color: white;
+}
+
+/*Rodapé*/
+.footer{
+	background-color: white;
+	text-align: center;
+	padding: 20px;
+}
