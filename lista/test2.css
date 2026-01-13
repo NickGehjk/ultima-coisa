@@ -1,13 +1,13 @@
 /* Estilos gerais e tema vermelho (variáveis CSS) */
 :root{
-    --bg: #fff5f5;
-    --card: #fff;
-    --red-700: #c53030;
-    --red-500: #e53e3e;
-    --red-300: #feb2b2;
+    --bg: #ffffff;
+    --card: #ffffff;
+    --red-700: #8A00C4;
+    --red-500: #9a42c0;
+    --red-300: #b592c4;
     --muted: #6b6464;
-    --accent: #d53f3f;
-    --shadow: rgba(197, 66, 66, 0.12);
+    --accent: #9a42c0;
+    --shadow: #ab7ac0;
     font-family: 'Lexend', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
@@ -83,12 +83,14 @@ h2{
 
 /* Larguras aproximadas das colunas para layout estável */
 .items-table tbody tr td:first-child{ 
-    width:45%;                  /* Item */
+    width:6%;                  /* Checkbox */
+    text-align:center;
     border-radius:10px 0 0 10px;/* arredonda canto esquerdo da linha */
 }
-.items-table tbody tr td:nth-child(2){ width:18%; color:var(--muted) } /* Quantidade */
-.items-table tbody tr td:nth-child(3){ width:25% }                    /* Categoria */
-.items-table tbody tr td:nth-child(4){ width:12%; text-align:right; border-radius:0 10px 10px 0 } /* Ações */
+.items-table tbody tr td:nth-child(2){ width:45% } /* Item */
+.items-table tbody tr td:nth-child(3){ width:18%; color:var(--muted) } /* Quantidade */
+.items-table tbody tr td:nth-child(4){ width:25% }                    /* Categoria */
+.items-table tbody tr td:nth-child(5){ width:12%; text-align:right; border-radius:0 10px 10px 0 } /* Ações */
 
 /* Estado riscado (checked) */
 .items-table tbody tr.checked{
@@ -102,17 +104,19 @@ h2{
     display:inline-block;
     padding:4px 8px;
     border-radius:999px;
-    font-size:12px;
+    font-size:13px;
     font-weight:600;
-    color:#fff;
+    color:#000000;
 }
 
 /* temas das categorias (tons vermelhos/pink) */
+/*
 .tag.geral{ background: linear-gradient(90deg,var(--red-500), #d94646) }
 .tag.churras{ background: linear-gradient(90deg,#b91c1c,#ef4444) }
 .tag.strog{ background: linear-gradient(90deg,#fb7185,#f43f5e) }
 .tag.macarrao{ background: linear-gradient(90deg,#f97316,#ef4444) }
 .tag.bebida{ background: linear-gradient(90deg,#f43f5e,#fb7185) }
+*/
 
 /* Botão excluir */
 .delete-btn{
@@ -139,6 +143,9 @@ h2{
     box-shadow: 0 6px 18px rgba(213,63,63,0.18);
 }
 .primary:hover{ filter:brightness(.98); transform:translateY(-1px) }
+
+/* container para empilhar os botões de criar e dar espaçamento */
+.create-buttons button + button { margin-top: 12px; }
 
 /* Botão secundário (CANCELAR) */
 .secondary{
